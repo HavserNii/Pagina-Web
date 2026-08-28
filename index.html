@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Nat & Pat</title>
+
+<link rel="stylesheet" href="Stilos.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <h1>Nat & Pat: Traduccion de direcciones</h1>
+        <p>Estudiante: Havser Nior Cervantes Rodriguez</p>
+
+        <img src="https://images.openai.com/static-rsc-4/KzL-VerN6lf6JAH9a54fkmY3rxD30cBHR5_n-s1rxNeUbmbKrjWUqX6j_WKrahUO3B9_b8dJSjTr2HBJxodbEUUURzhfp1GTe-d0rtAYMcj-7fQj3eTNGTX5Y-6yPNzuIk_PlqQy3-fToyX3ZwCWO1tXRXP7JX0zlbCDggmNbsc?purpose=inline" class = "imga" alt="Nat">
+
+
+    <h1>Introduccion</h1>
+    <p><b>NAT (Network Address Translation)</b> y <b>PAT (Port Address Translation)</b> son mecanismos utilizados en las redes informáticas para traducir direcciones IP privadas en direcciones IP públicas. Su principal función es permitir que varios dispositivos de una red local puedan comunicarse con Internet utilizando una o varias direcciones IP públicas.
+    Estos mecanismos son especialmente importantes debido a la limitada cantidad de direcciones disponibles en IPv4. Al permitir que muchos dispositivos compartan una misma dirección IP pública, NAT y PAT ayudan a aprovechar mejor las direcciones IPv4 disponibles.
+    Además, NAT proporciona cierto nivel de aislamiento entre la red interna y las redes externas, ya que las direcciones privadas de los dispositivos no necesitan ser expuestas directamente a Internet.</p>
+    
+    <h3>Explicacion general</h3>
+
+    <p><b>NAT (Network Address Translation)</b> es una técnica que modifica las direcciones IP de los paquetes cuando estos atraviesan un router o dispositivo de red.</p>
+
+    <p>Por ejemplo:</p>
+
+    <p><b>Dentro de la red:</b></p>
+       
+    <pre><code>192.168.1.10</code></pre>
+
+    <p>Al salir a Internet, el router puede traducirla a:</p>
+
+    <pre><code>181.50.20.100</code></pre>
+
+    <p>De esta manera, un dispositivo que utiliza una dirección privada puede comunicarse con servidores de Internet mediante una dirección pública.</p>
+
+
+    <h3>Desarrollo / Contenido</h3>
+
+
+    <figure>
+    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*CQK8PcFJne5GPmyn6Kvp_w.png" alt="Concepto de Nat">
+    <figcaption>
+        Figura 1. Funcionamiento de NAT y traducción entre direcciones privadas y públicas.
+    </figcaption>
+</figure>
+    
+    <h4>¿Qué es NAT?</h4>
+
+    <p><b>NAT (Network Address Translation)</b> es una técnica que modifica las direcciones IP de los paquetes cuando estos atraviesan un router o dispositivo de red.</p>
+
+    <p>Por ejemplo:</p>
+
+    <p><b>Dentro de la red:</b></p>
+
+    <pre><code>192.168.1.10</code></pre>
+
+    <p>Al salir a Internet, el router puede traducirla a:</p>
+
+    <pre><code>181.50.20.100</code></pre>
+
+    <p>De esta manera, un dispositivo que utiliza una dirección privada puede comunicarse con servidores de Internet mediante una dirección pública.</p>
+
+
+    
+
+    <h3>Tipos principales de NAT</h3>
+
+    <figure>
+     <img src="https://images.openai.com/static-rsc-4/rsPHifIS3eBqs9wNy-a5ANp_cjNNqMSV3RMQXRkfUmEjiJ_fhX_UA8egpKaJQywtg_tviw3xDJ0abWTt1-IKokjR4HQEPBRD7jEaNj9A-Vyil1lv54DNUbC7k3gz2xdpQUsoCKZ1NrdM7F2E_Vmnw0Wjftvuts5iwOaIdiveMTzQBShu4V2_qY91HZ5cusY6?purpose=fullsize" alt="Diagrama Nat">
+    <figcaption>
+        Figura 2. Tipos de Nat.
+    </figcaption>
+</figure>
+
+
+    <p><b>NAT estático:</b> una dirección privada se relaciona permanentemente con una dirección pública.</p>
+    <p><b>NAT dinámico:</b> las direcciones privadas utilizan temporalmente una dirección de un conjunto de direcciones públicas.</p>
+    <p><b>PAT (Nat sobrecargado):</b> varios dispositivos utilizan una misma dirección pública diferenciándose mediante números de puerto.</p>
+
+
+    <h3>¿Qué es PAT?</h3>
+
+    <figure>
+    <img src="https://image2.slideserve.com/3928988/pat-port-address-translation-overloaded-nat-n.jpg" alt="Diagrama de Pat">
+    <figcaption>
+        Figura 3. Diagrama de Pat
+    </figcaption>
+</figure>
+
+
+
+
+    <p><b>PAT (Port Address Translation)</b> es una variante de NAT que permite que muchos dispositivos compartan una única dirección IP pública, utilizando diferentes números de puerto para identificar cada conexión.</p>
+
+    <p>Por ejemplo:</p>
+
+
+    <table border="2">
+        <thead>
+        <tr>
+            <th>Dispositivo</th>
+            <th>IP privada</th>
+            <th>Puerto</th>
+            <th>IP publica</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>PC 1</td>
+                <td>192.168.1.10</td>
+                <td>5000</td>
+                <td>181.50.20.100:5000</td>
+            </tr>
+
+            <tr>
+                <td>PC 2</td>
+                <td>192.168.1.11</td>
+                <td>5001</td>
+                <td>181.50.20.100:5001</td>
+            </tr>
+
+            <tr>
+                <td>Celular</td>
+                <td>192.168.1.12</td>
+                <td>5002</td>
+                <td>181.50.20.100:5002</td>
+            </tr>
+        </tbody>
+
+
+    </table>    
+
+    <p>El router mantiene una tabla de traducciones para saber qué dispositivo debe recibir cada respuesta.</p>
+    <h4>¿NAT y PAT ayudan a que duren más las IPv4?</h4>
+    <p>Sí. Esta es una de sus principales ventajas.</p>
+    <p>dispone de aproximadamente 4.294 millones de direcciones teóricas (2³²), pero no todas pueden utilizarse como direcciones públicas. NAT y, especialmente, PAT permiten que miles de dispositivos de redes privadas accedan a Internet compartiendo una cantidad mucho menor de direcciones públicas.</p>
+
+    <div style="border-left: 4px solid #224eff; padding-left: 15px; margin: 10px 0;">
+    Sin embargo, NAT/PAT no aumenta la cantidad de direcciones IPv4 existentes. Simplemente permite aprovecharlas de manera más eficiente.
+    </div>
+
+    <h3>Ventajas</h3>
+    <ul>
+        <li>Permite conectar muchos dispositivos utilizando pocas direcciones IPv4 públicas.</li>
+        <li>Ayuda a conservar direcciones IPv4.</li>
+        <li>Permite utilizar direcciones privadas dentro de redes locales.</li>
+        <li>las direcciones IP internas frente a conexiones externas.</li>
+        <li>PAT permite que numerosos dispositivos compartan una sola IP pública.</li>
+        <li>Es ampliamente utilizado en hogares, empresas y redes de operadores.</li>
+
+    </ul>
+    
+
+
+    <h3>Desventajas</h3>
+    <ul>
+        <li>Puede complicar algunas conexiones directas entre dispositivos.</li>
+        <li>Puede generar problemas con determinadas aplicaciones y protocolos.</li>
+        <li>Hace más compleja la administración y resolución de problemas de red.</li>
+        <li>NAT no debe considerarse un sustituto de un firewall.</li>
+        <li>Algunas aplicaciones necesitan mecanismos adicionales como port forwarding, STUN, TURN o UPnP.</li>
+    </ul>
+    
+    
+
+    <h3>Componentes y herramientas</h3>
+
+    <h4>Para implementar NAT/PAT normalmente se utilizan:</h4>
+
+
+
+    <figure>
+    <img src="https://mwofqqzjzhhinqamxmxt.supabase.co/storage/v1/object/public/blog-images/88d13d47-10d2-45dc-a734-6b89b6200de0/nat-and-pat-explained-how-ip-sharing-works-1771165600546.png" alt="Componentes Nat & Pat">
+    <figcaption>
+        Figura 4. Componentes Nat & Pat.
+    </figcaption>
+</figure>
+
+
+
+
+
+    <ul>
+        <li><p><b>Router:</b> realiza las traducciones entre las redes.</p> </li>
+        <li><p><b>Dirección IP privada:</b> identifica al dispositivo dentro de la red local.</p></li>
+        <li><p><b>Dirección IP pública:</b> permite la comunicación con Internet.</p></li>
+        <li><p><b>Puertos:</b> utilizados por PAT para diferenciar las conexiones.</p></li>
+        <li><p><b>Tabla NAT:</b> registra las asociaciones entre direcciones y puertos.</p></li>
+        <li><p><b>Firewall:</b> puede controlar qué conexiones entran y salen de la red.</p></li>
+    </ul>
+
+    <h3>Ejemplos o casos prácticos</h3>
+    <h4>Ejemplo: una red doméstica</h4>
+
+
+
+    <figure>
+    <img src="https://www.freecodecamp.org/espanol/news/content/images/size/w1000/2020/12/imagen-9.png" alt="">
+    <figcaption>
+        Figura 5. Ejemplo de Nat en red domestica
+    </figcaption>
+</figure>
+
+
+
+    <p><b>Imaginemos una casa con:</b></p>
+
+    <ul>
+        <li>Computador: 192.168.1.10</li>
+        <li>Celular: 192.168.1.11</li>
+        <li>Consola: 192.168.1.12</li>
+    </ul>
+   
+    <p><b>Todos utilizan una única IP pública:</b></p>
+
+    <pre><code>181.50.20.100</code></pre>
+
+    <p>Cuando el computador accede a una página web, el router puede crear una traducción como:</p>
+
+    <p><b>Antes:</b></p>
+
+    <pre><code>192.168.1.10:5000 → servidor web</code></pre>
+
+    <p><b>Después:</b></p>
+
+    <pre><code>181.50.20.100:5000 → servidor web</code></pre>
+
+    <p><b>Mientras tanto, el celular puede utilizar:</b></p>
+
+    <pre><code>181.50.20.100:5001 → servidor web</code></pre>
+
+    <p>Aunque ambos dispositivos utilizan la misma IP pública, el router sabe cuál conexión pertenece a cada dispositivo gracias a los puertos.</p>
+     
+    <h4>Caso práctico en una empresa</h4>
+
+    <p>Una empresa puede tener cientos de computadores utilizando direcciones privadas:</p>
+
+    <pre><code>10.0.0.1</code></pre>
+    <pre><code>10.0.0.2</code></pre>
+    <pre><code>10.0.0.3</code></pre>
+    <pre><code>...</code></pre>
+
+    <p>En lugar de necesitar una dirección IPv4 pública para cada computador, puede utilizar PAT para que todos accedan a Internet mediante unas pocas direcciones públicas o incluso una sola.</p> 
+    
+
+
+    <h3>Comparación</h3>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Caracteristica</th>
+                <th>Nat</th>
+                <th>Pat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Traduce IP</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+
+            <tr>
+                <td>Utiliza puertos</td>
+                <td>No necesariamente</td>
+                <td>✅</td>
+            </tr>
+
+            <tr>
+                <td>Muchos dispositivos con una IP pública</td>
+                <td>Depende del tipo</td>
+                <td>✅</td>
+            </tr>
+
+            <tr>
+                <td>Ahorro de IPv4</td>
+                <td>✅</td>
+                <td>⭐ Muy alto</td>
+            </tr>
+
+            <tr>
+                <td>Uso en redes domésticas</td>
+                <td>✅</td>
+                <td>✅ Muy común</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Conclusiones</h3>
+
+    <p>NAT y PAT son tecnologías fundamentales para el funcionamiento de muchas redes actuales. Permiten que dispositivos que utilizan direcciones IP privadas puedan acceder a Internet mediante direcciones IP públicas.</p>
+    <p>PAT es especialmente importante porque permite que numerosos dispositivos compartan una misma dirección IPv4 pública utilizando diferentes puertos. Esto ha permitido prolongar la utilidad de IPv4 y reducir considerablemente la cantidad de direcciones públicas necesarias.</p>
+    <p>En la industria, NAT y PAT continúan siendo utilizados en redes domésticas, empresas, centros de datos y proveedores de Internet. Sin embargo, el crecimiento de Internet también ha impulsado la adopción de IPv6, que dispone de un espacio de direcciones muchísimo mayor y reduce la necesidad de utilizar NAT como mecanismo de conservación de direcciones.</p>
+    
+    
+    <h3>Idea clave para cerrar</h3>
+
+    <div style="border-left: 4px solid #224eff; padding-left: 15px; margin: 10px 0;">
+    NAT traduce direcciones; PAT además utiliza los puertos para permitir que múltiples dispositivos compartan una misma dirección IP pública.
+    </div>
+
+    <footer><p> ©2026 Havser Cervantes. Derechos reservados</p></footer>
+
+</body>
+
+
+</html>
